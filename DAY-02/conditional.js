@@ -36,10 +36,15 @@ const price2 = 220;
 // }
 
 
-const age = 20;
-const hasTicket = false;
-if (age > 18 && hasTicket) {
-    console.log("Entry allowed");
-} else {
-    console.log("Entry not allowed");
-}
+// const age = 20;
+// const hasTicket = false;
+// if (age > 18 && hasTicket) {
+//     console.log("Entry allowed");
+// } else {
+//     console.log("Entry not allowed");
+// }
+
+
+let isLoggedIn = false;
+console.log(!isLoggedIn);
+
