@@ -88,3 +88,5 @@ const array1 = [2, 3, 4, 7, 8, 10, 12, 15];
 const { evens, odds } = indentifyEvenOdd(array1);
 console.log("Even Numbers:", evens); // Output: [2, 4, 8, 10, 12]
 console.log("Odd Numbers:", odds); // Output: [3, 7, 15]
+
+
