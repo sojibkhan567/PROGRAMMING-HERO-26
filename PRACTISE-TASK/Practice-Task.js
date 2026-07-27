@@ -55,14 +55,19 @@
 // Output: array of odd numbers from 1 to n
 // Returns: an array
 
-function getOddNumbers(n) {
-  let odds = [];
-  for (let i = 0; i < n; i++) {
-    if (i % 2 !== 0) {
-      odds.push(i);
-    }
-  }
-  return odds;
-}
+// function getOddNumbers(n) {
+//   let odds = [];
+//   for (let i = 0; i < n; i++) {
+//     if (i % 2 !== 0) {
+//       odds.push(i);
+//     }
+//   }
+//   return odds;
+// }
 
-console.log(getOddNumbers(10)); // Expected: [1, 3, 5, 7, 9]
+// console.log(getOddNumbers(10)); // Expected: [1, 3, 5, 7, 9]
+
+function add(a, b) {
+  return a + b;
+}
+console.log(add(5));

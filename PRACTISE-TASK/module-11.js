@@ -37,8 +37,8 @@
 
 //? Task 4.1 — Three Reversal Methods
 function reverseString(str) {
-    reverseString = str.split("").reverse().join("");
-    return reverseString;
+  reverseString = str.split("").reverse().join("");
+  return reverseString;
 }
 // function reverseString(str) {
 //     let reverseString = "";
@@ -121,3 +121,14 @@ for (const key in contact) {
 const name = contact.name;
 const result = reverseString(name);
 console.log(result);
+
+//add favouriteWords
+contact.favoriteWords = ["mango", "banana", "orange"];
+console.log(contact);
+
+//check email
+if (email.includes("@email.com")) {
+  console.log("Email is correct");
+} else {
+  console.log("Email is incorrect.");
+}
