@@ -1,6 +1,6 @@
 const fruits = ["mango", "grapes", "orange", "lichi", "jack-fruits"];
 
-//console.log(fruits.length);
+console.log(fruits.length);
 
 // push() : Add element at last position
 //fruits.push("guava");

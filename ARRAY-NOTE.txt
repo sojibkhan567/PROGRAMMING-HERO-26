@@ -1,0 +1,4 @@
+01. for--of--loop: array element print kore
+02. for--in--loop: array key print kore
+
+03. we can not use of in object
