@@ -10,3 +10,7 @@ const person = {
 };
 
 const keys = Object.keys(person);
+
+for (const element of keys) {
+  console.log(element, person[element]);
+}
