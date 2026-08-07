@@ -114,7 +114,10 @@ const getGrade = (marks) => {
         return "Fail";
     }
 }
-console.log(getGrade(95));
-console.log(getGrade(82));
-console.log(getGrade(45));
-console.log(getGrade("A+"));
+//console.log(getGrade());
+// console.log(getGrade(82));
+// console.log(getGrade(45));
+// console.log(getGrade("A+"));
+
+let a;
+console.log(a)
