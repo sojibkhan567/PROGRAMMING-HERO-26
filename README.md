@@ -13,3 +13,8 @@
 5. `chaining all method` in details
 6. `closures` in details
 7. `Callbacks and reference bugs`, sort and mutation fix
+
+### MODULE-21: TYPESCRIPT START
+------
+01. 22-2 TypeScript Type alias or custom type
+2. 22-3 Introduction to interface in TypeScript
