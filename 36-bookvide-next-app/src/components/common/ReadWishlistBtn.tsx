@@ -1,28 +1,41 @@
 "use client";
 import { useBooks } from "@/context/BookContext";
 import { BookTypes } from "@/types/books";
+import { toast } from "react-toastify";
 
 interface ReadWishlistBtnProps {
     book: BookTypes
 }
 
 const ReadWishlistBtn = ({ book }: ReadWishlistBtnProps) => {
-    const { readBooks, setReadBooks, wishlist, setWishlist } = useBooks();
+
+    const { addToReadBooks, addToWishlist } = useBooks();
 
     // add to read list
-    const addToRead = (book: BookTypes) => {
-        setReadBooks([...readBooks, book]);
-    }
+    const handleReadBook = () => {
+        const success = addToReadBooks(book);
 
-    // add to wishlist
-    const addToWishlist = (book: BookTypes) => {
-        setWishlist([...wishlist, book]);
-    }
+        if (success) {
+            toast.success("Book added to Read Books!");
+        } else {
+            toast.error("This book is already in Read Books or Wishlist!");
+        }
+    };
+
+    const handleWishlist = () => {
+        const success = addToWishlist(book);
+
+        if (success) {
+            toast.success("Book added to Wishlist!");
+        } else {
+            toast.error("This book is already in Read Books or Wishlist!");
+        }
+    };
 
     return (
         <div className="flex gap-6">
-            <button onClick={() => addToRead(book)} className="px-6 py-2 border border-gray-300 font-medium">Read</button>
-            <button onClick={() => addToWishlist(book)} className="px-5 py-2 bg-lime-500 font-medium">Wishlist</button>
+            <button onClick={handleReadBook} className="px-6 py-2 border border-gray-300 font-medium">Read</button>
+            <button onClick={handleWishlist} className="px-5 py-2 bg-lime-500 font-medium">Wishlist</button>
         </div>
     )
 }

@@ -1,13 +1,14 @@
 "use client";
 
 import { BookTypes } from "@/types/books";
-import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
+import { createContext, useContext, useState, ReactNode, } from "react";
 
 type BookContextType = { 
     readBooks: BookTypes[]; 
-    setReadBooks: Dispatch<SetStateAction<BookTypes[]>>; 
     wishlist: BookTypes[]; 
-    setWishlist: Dispatch<SetStateAction<BookTypes[]>>; 
+
+    addToReadBooks: (book: BookTypes) => boolean; 
+    addToWishlist: (book: BookTypes) => boolean;
 };
 
 const BooksContext = createContext<BookContextType | undefined>(undefined);
@@ -16,13 +17,41 @@ export const BookProvider = ({ children }: { children: ReactNode }) => {
     const [readBooks, setReadBooks] = useState<BookTypes[]>([]);
     const [wishlist, setWishlist] = useState<BookTypes[]>([]);
 
+    // add book to read list
+    const addToReadBooks = (book: BookTypes): boolean => {
+        const alreadyExists =
+            readBooks.some((item) => item.bookId === book.bookId) ||
+            wishlist.some((item) => item.bookId === book.bookId);
+
+        if (alreadyExists) {
+            return false;
+        }
+
+        setReadBooks((prev) => [...prev, book]);
+        return true;
+    };
+
+    // add book to wishlist 
+    const addToWishlist = (book: BookTypes): boolean => {
+        const alreadyExists =
+            readBooks.some((item) => item.bookId === book.bookId) ||
+            wishlist.some((item) => item.bookId === book.bookId);
+
+        if (alreadyExists) {
+            return false;
+        }
+
+        setWishlist((prev) => [...prev, book]);
+        return true;
+    };
+
     return (
         <BooksContext.Provider
             value={{
                 readBooks,
-                setReadBooks,
                 wishlist,
-                setWishlist
+                addToReadBooks,
+                addToWishlist
             }}
         >
             {children}

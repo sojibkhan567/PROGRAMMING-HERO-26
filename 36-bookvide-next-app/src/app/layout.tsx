@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import { BookProvider } from "@/context/BookContext";
+import { ToastContainer } from "react-toastify";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <Footer />
         </BookProvider>
+        <ToastContainer position="top-center" />
       </body>
     </html>
   );

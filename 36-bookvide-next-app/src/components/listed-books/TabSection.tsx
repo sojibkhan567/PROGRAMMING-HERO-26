@@ -1,10 +1,40 @@
 "use client"
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import ReadBooksList from './ReadBooksList';
 import WishlistBooksList from './WishlistBooksList';
+import { useBooks } from '@/context/BookContext';
+
+type SortType = "rating" | "pages" | "year";
 
 const TabSection = () => {
   const [status, setStatus] = useState<"read" | "wishlist">("read");
+  const [sortBy, setSortBy] = useState<SortType | "">("");
+
+  const { readBooks, wishlist } = useBooks();
+
+  // Get currently selected books
+  const currentBooks = status === "read" ? readBooks : wishlist;
+
+  // Sort books
+  const sortedBooks = useMemo(() => {
+    const books = [...currentBooks];
+
+    if (sortBy === "rating") {
+      return books.sort((a, b) => b.rating - a.rating);
+    }
+
+    if (sortBy === "pages") {
+      return books.sort((a, b) => b.totalPages - a.totalPages);
+    }
+
+    if (sortBy === "year") {
+      return books.sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+    }
+
+    return books;
+  }, [currentBooks, sortBy]);
 
   return (
     <>
@@ -17,7 +47,11 @@ const TabSection = () => {
 
         {/* sort by books btn */}
         <div className='border-l border-gray-300 px-4 py-2'>
-          <select className="border-none focus:outline-none bg-white rounded-md">
+          <select
+            value={sortBy}
+            onChange={(e) =>
+              setSortBy(e.target.value as SortType | "")
+            } className="border-none focus:outline-none bg-white rounded-md">
             <option disabled={true}>Sort by</option>
             <option value={"rating"}>Rating</option>
             <option value={"pages"}>Number of Pages</option>
@@ -25,11 +59,12 @@ const TabSection = () => {
           </select>
         </div>
       </div>
+
       <div>
         {status === "read" ? (
-          <ReadBooksList />
+          <ReadBooksList books={sortedBooks} />
         ) : (
-          <WishlistBooksList />
+            <WishlistBooksList books={sortedBooks} />
         )
         }
       </div>

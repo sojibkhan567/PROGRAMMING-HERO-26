@@ -1,6 +1,4 @@
 import { BookTypes } from "@/types/books";
-import Image from "next/image";
-import Img from "@/assets/book-img.png"
 import ReadWishlistBtn from "@/components/common/ReadWishlistBtn";
 
 interface BookDetailsProps {
@@ -27,7 +25,7 @@ const BookDetailsPage = async ({ params }: BookDetailsProps) => {
             <div className="w-full lg:flex gap-10">
                 <div className="lg:w-1/2 bg-gray-200 rounded-2xl py-25 flex justify-center items-center">
                     <div className="">
-                        <Image src={Img} alt="image" width={318} height={394}/>
+                        <img src={book.image} alt={book.bookName} className="h-120"/>
                     </div>
                 </div>
                 <div className="lg:w-1/2">
