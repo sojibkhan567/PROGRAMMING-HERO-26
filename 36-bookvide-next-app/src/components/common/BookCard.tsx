@@ -16,7 +16,7 @@ const BookCard = ({ book }: BookProps) => {
             <div className='pt-6'>
                 <div className='flex gap-3'>
                     {book.tags.map((tag: string, index: number) => (
-                        <span key={index} className='bg-gray-200 px-4 text-lime-500 font-semibold py-1 rounded-full'>{tag}</span>
+                        <span key={index} className='bg-gray-200 px-4 text-lime-500 font-semibold py-1 rounded-full'>#{tag}</span>
                     ))}
                 </div>
                 <h2 className='text-2xl py-4'>{book.bookName}</h2>

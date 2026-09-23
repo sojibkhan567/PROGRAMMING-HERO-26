@@ -1,8 +1,9 @@
 import { BookTypes } from "@/types/books";
 import ReadWishlistBtn from "@/components/common/ReadWishlistBtn";
+import Image from "next/image";
 
 interface BookDetailsProps {
-    params: Promise<{id:string}>
+    params: Promise<{ id: string }>
 }
 
 // fetch all books data
@@ -17,7 +18,7 @@ const BookDetailsPage = async ({ params }: BookDetailsProps) => {
 
     const booksData = await getBooks();
 
-    const book:BookTypes = booksData.find((book: BookTypes) => String(book.bookId) === String(id));
+    const book: BookTypes = booksData.find((book: BookTypes) => String(book.bookId) === String(id));
     //console.log(book)
 
     return (
@@ -25,7 +26,7 @@ const BookDetailsPage = async ({ params }: BookDetailsProps) => {
             <div className="w-full lg:flex gap-10">
                 <div className="lg:w-1/2 bg-gray-200 rounded-2xl py-25 flex justify-center items-center">
                     <div className="">
-                        <img src={book.image} alt={book.bookName} className="h-120"/>
+                        <Image src={book.image} alt={book.bookName} width={300} height={400} />
                     </div>
                 </div>
                 <div className="lg:w-1/2">
@@ -33,10 +34,10 @@ const BookDetailsPage = async ({ params }: BookDetailsProps) => {
                     <p className="text-xl font-medium text-gray-700 pb-4 border-b border-gray-300">By: {book.author}</p>
                     <p className="font-medium text-gray-700 py-3 border-b border-gray-300">{book.category}</p>
                     <p className="text-gray-600 py-6 leading-7"><span className="text-black font-bold">Review:</span> {book.review}</p>
-                    
+
                     <div className="flex gap-4 items-center pb-6 border-b border-gray-300">
                         <p className="text-black font-bold">Tag:</p>
-                        {book.tags.map((tag:string, index:number) => (
+                        {book.tags.map((tag: string, index: number) => (
                             <button key={index} className="py-1 px-3 rounded-2xl bg-gray-200 text-lime-500 font-bold">#{tag}</button>
                         ))}
                     </div>
@@ -55,10 +56,9 @@ const BookDetailsPage = async ({ params }: BookDetailsProps) => {
                             <p>{book.rating}</p>
                         </div>
                     </div>
-                    
+
                     {/** read & wishlist btn */}
-                    <ReadWishlistBtn book={book}/>
-                    
+                    <ReadWishlistBtn book={book} />
                 </div>
             </div>
         </section>

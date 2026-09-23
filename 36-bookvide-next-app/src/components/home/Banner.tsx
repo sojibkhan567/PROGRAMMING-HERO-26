@@ -9,7 +9,7 @@ const Banner = () => {
                 {/** left side */}
                 <div className="w-xl h-full">
                     <h1 className="text-7xl font-medium leading-25 mb-16">Books to fresh up your bookshelf</h1>
-                    <Link href={"./book-img.png"} className="text-white font-semibold bg-lime-600 px-6 py-4 rounded-md">View The List</Link>
+                    <Link href={"/listed-books"} className="text-white font-semibold bg-lime-600 px-6 py-4 rounded-md">View The List</Link>
                 </div>
                 {/** right side */}
                 <div>

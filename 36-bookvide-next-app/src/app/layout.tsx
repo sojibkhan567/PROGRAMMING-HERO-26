@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <Footer />
         </BookProvider>
-        <ToastContainer position="top-center" />
+        <ToastContainer />
       </body>
     </html>
   );

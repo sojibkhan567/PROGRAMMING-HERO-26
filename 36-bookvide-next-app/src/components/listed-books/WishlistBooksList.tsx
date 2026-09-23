@@ -11,8 +11,8 @@ const WishlistBooksList = ({ books }: WishlistBooksListProps) => {
   return (
     <div>
       {books.length === 0 ? (
-        <div className="h-100 flex flex-col items-center justify-center">
-          <h1 className='text-5xl text-center text-gray-600 mt-4'>No books in wishlist.</h1>
+        <div className="h-30 flex flex-col items-center justify-center">
+          <h1 className='text-5xl text-center text-red-600 mt-4'>No books in wishlist.</h1>
         </div>
         
       ) : (
